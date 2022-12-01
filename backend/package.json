@@ -1,0 +1,25 @@
+{
+  "name": "react-nest-postgres-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run start:dev",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "prisma": "^4.6.1"
+  },
+  "dependencies": {
+    "@nestjs/cli": "^9.1.5",
+    "@prisma/client": "^4.6.1",
+    "add": "^2.0.6",
+    "cwd": "^0.10.0",
+    "global": "^4.4.0",
+    "prefix": "^1.0.0"
+  }
+}
