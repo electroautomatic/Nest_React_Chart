@@ -1,5 +1,4 @@
 services:
-  
   # название сервиса
   postgres:
     # образ
@@ -8,29 +7,13 @@ services:
     restart: on-failure
     # файл с переменными среды окружения
     env_file:
-      - ./db/.env
+      - .env
     # порты
     ports:
       - 5432:5432
     # тома для постоянного хранения данных
     volumes:
       - postgres-data:/var/lib/postgresql/data
-    
-  # frontend:
-  #   build: './frontend'
-  #   env_file:
-  #     - ./frontend/.env
-
-  backend:
-    build: './backend'
-    env_file:
-      - ./backend/.env
-    volumes:
-      - static:/usr/src/app/static
-    
 
 volumes:
-  postgres-data:  
-  static:
-
-
+  postgres-data:
