@@ -1,5 +1,45 @@
+version: '3.0'
+
 services:
-  # название сервиса
+  nest:
+    container_name: nest
+    build:
+      context: ./server
+    ports:
+      - 3001:3001
+      - 3002:3002
+      - 9229:9229
+    env_file:
+      - ./server/.env
+    command: ["sh", "run.sh"]
+    depends_on:
+      - postgres
+    restart: always
+
+  # postgres:
+  #   container_name: postgres
+  #   image: postgres:14
+  #   environment:
+  #     PG_DATA: /var/lib/postgresql/data
+  #     POSTGRES_PASSWORD: secret
+  #     POSTGRES_USER: Admin
+  #     POSTGRES_DB: ft_transcendence
+  #   ports:
+  #     - 5434:5432
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   restart: always
+
+  react:
+    container_name: react
+    build:
+      context: ./client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - nest
+    restart: always
+  
   postgres:
     # образ
     image: postgres
@@ -17,3 +57,5 @@ services:
 
 volumes:
   postgres-data:
+
+

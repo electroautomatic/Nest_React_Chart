@@ -1,6 +1,6 @@
 import { Message, Prisma } from "@prisma/client";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { io, Socket } from "Socket.IO-client";
+import { io, Socket } from "socket.io-client";
 import { SERVER_URI, USER_INFO } from "../constants";
 import { MessageUpdatePayload, UserInfo } from "../types";
 import { storage } from "../utils";
