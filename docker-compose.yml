@@ -9,6 +9,7 @@ services:
       - 3001:3001
       - 3002:3002
       - 9229:9229
+      - 3004:5555
     env_file:
       - ./server/.env
     command: ["sh", "run.sh"]
@@ -35,7 +36,7 @@ services:
     build:
       context: ./client
     ports:
-      - "8080:8080"
+      - '5173:5173'
     depends_on:
       - nest
     restart: always
