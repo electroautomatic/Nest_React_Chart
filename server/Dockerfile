@@ -10,4 +10,5 @@ COPY . .
 
 RUN npm run prisma:generate
 
+
 CMD ["sh", "run.sh"]
